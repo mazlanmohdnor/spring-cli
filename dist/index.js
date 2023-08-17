@@ -28,14 +28,15 @@ const promptUser = (question) => new Promise((resolve) => {
     });
 });
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(chalk_1.default.greenBright(figlet_1.default.textSync('Spring Generator')));
+    console.log(chalk_1.default.greenBright(figlet_1.default.textSync('NGOS Spring File Generator')));
+    // Display a welcoming message and usage instructions
+    console.log(chalk_1.default.cyanBright('Welcome to the NGOS Spring File Generator CLI!'));
+    console.log(chalk_1.default.cyanBright('This tool helps you generate Spring Boot files easily.'));
+    console.log(chalk_1.default.cyanBright('Usage: spring'));
     const program = new commander_1.Command();
     program
-        .version('1.0.0')
+        .version('1.0.1-alpha-4')
         .description(chalk_1.default.blueBright('🌼 A CLI tool to generate Spring Boot Files 🌼'))
-        .option('-r, --route <routePath>', chalk_1.default.cyan('Specify route path'))
-        .option('-c, --controller <controllerName>', chalk_1.default.cyan('Specify controller name'))
-        .option('-s, --service <serviceName>', chalk_1.default.cyan('Specify service name'))
         .parse(process.argv);
     const generateChoice = yield promptUser(chalk_1.default.magentaBright('🚀 What would you like to generate? (c: Controller, s: Service, a: All): '));
     if (generateChoice.toLowerCase() === 'c' || generateChoice.toLowerCase() === 'a') {
