@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ${serviceSOPascalCase}SOImpl extends BaseSOImpl<${entityNamePascalCase}, ${modelNamePascalCase}, Long> implements ${serviceSOPascalCase}SO {
 
-  private final ${repositoryNamePascalCase}Repository ${repositoryNameCameCase}Repository;
-  private final ${serviceSOPascalCase}Mapper ${serviceSOPascalCase}Mapper;
+  private final ${repositoryNamePascalCase}Repository ${serviceSOCamelCase}Repository;
+  private final ${serviceSOPascalCase}Mapper ${serviceSOCamelCase}Mapper;
 
   public ${serviceSOPascalCase}SOImpl(${repositoryNamePascalCase}Repository repository, ${mapperNamePascalCase}Mapper mapper) {
     super(repository, mapper);
-    this.${serviceSOPascalCase}Repository = repository;
-    this.${serviceSOPascalCase}Mapper = mapper;
+    this.${serviceSOCamelCase}Repository = repository;
+    this.${serviceSOCamelCase}Mapper = mapper;
   }
 
 }
