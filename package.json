@@ -1,7 +1,7 @@
 {
   "name": "spring-boot-cli-generator",
-  "version": "1.0.1-alpha-4",
-  "description": "",
+  "version": "1.0.1-alpha-5",
+  "description": "CLI tool for generating boilerplate code for Spring Boot applications.",
   "main": "dist/index.js",
   "bin": {
     "spring": "./dist/index.js"
@@ -11,8 +11,8 @@
     "copy-files": "copyfiles -u 1 src/templates/* dist/commands/",
     "build": "npm run clean && tsc && npm run copy-files"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["spring", "boot", "cli", "generator"],
+  "author": "Mazlan",
   "license": "ISC",
   "devDependencies": {
     "@types/figlet": "^1.5.6",

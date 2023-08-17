@@ -35,7 +35,7 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log(chalk_1.default.cyanBright('Usage: spring'));
     const program = new commander_1.Command();
     program
-        .version('1.0.1-alpha-4')
+        .version('1.0.1-alpha-5')
         .description(chalk_1.default.blueBright('🌼 A CLI tool to generate Spring Boot Files 🌼'))
         .parse(process.argv);
     const generateChoice = yield promptUser(chalk_1.default.magentaBright('🚀 What would you like to generate? (c: Controller, s: Service, a: All): '));

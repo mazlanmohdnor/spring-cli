@@ -28,7 +28,7 @@ const run = async () => {
 
     const program = new Command();
     program
-        .version('1.0.1-alpha-4')
+        .version('1.0.1-alpha-5')
         .description(chalk.blueBright('🌼 A CLI tool to generate Spring Boot Files 🌼'))
         .parse(process.argv);
 
