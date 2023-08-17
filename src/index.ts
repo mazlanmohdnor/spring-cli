@@ -23,7 +23,7 @@ const run = async () => {
 
     const program = new Command();
     program
-        .version('1.0.0')
+        .version('1.0.1-alpha-3')
         .description(chalk.blueBright('🌼 A CLI tool to generate Spring Boot Files 🌼'))
         .option('-r, --route <routePath>', chalk.cyan('Specify route path'))
         .option('-c, --controller <controllerName>', chalk.cyan('Specify controller name'))
