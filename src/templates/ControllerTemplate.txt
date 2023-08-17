@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/${routePathLowerCase}")
-public class ${controllerNamePascalCase} extends BaseController<${entityNamePascalCase}, ${modelNamePascalCase}, Long> {
+public class ${controllerNamePascalCase}Controller extends BaseController<${entityNamePascalCase}, ${modelNamePascalCase}, Long> {
 
-    private final ${serviceSOPascalCase} ${serviceSOCamelCase};
+    private final ${serviceSOPascalCase}SO ${serviceSOCamelCase}SO;
 
-    public ${controllerNamePascalCase}(${serviceSOPascalCase} service) {
+    public ${controllerNamePascalCase}Controller(${serviceSOPascalCase}SO service) {
         super(service);
-        this.${serviceSOCamelCase} = service;
+        this.${serviceSOCamelCase}SO = service;
     }
 
 }

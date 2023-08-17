@@ -23,20 +23,40 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateSpringBootController = exports.generateController = void 0;
+exports.generateSpringBootService = exports.generateSpringBootController = exports.generateServiceImpl = exports.generateService = exports.generateController = void 0;
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
 const templatePath = path.join(__dirname, 'templates', 'ControllerTemplate.txt');
+const ServiceSOPath = path.join(__dirname, 'templates', 'ServiceSO.txt');
+const ServiceSOImplePath = path.join(__dirname, 'templates', 'ServiceSOImple.txt');
 function generateController(data) {
     const template = fs.readFileSync(templatePath, 'utf-8');
     return template.replace(/\${(.*?)}/g, (_, match) => data[match.trim()] || '');
 }
 exports.generateController = generateController;
+function generateService(data) {
+    const template = fs.readFileSync(ServiceSOPath, 'utf-8');
+    return template.replace(/\${(.*?)}/g, (_, match) => data[match.trim()] || '');
+}
+exports.generateService = generateService;
+function generateServiceImpl(data) {
+    const template = fs.readFileSync(ServiceSOImplePath, 'utf-8');
+    return template.replace(/\${(.*?)}/g, (_, match) => data[match.trim()] || '');
+}
+exports.generateServiceImpl = generateServiceImpl;
 function generateSpringBootController(params) {
     const generatedCode = generateController(params);
-    const fileName = `${params.controllerNamePascalCase}.java`;
+    const fileName = `${params.controllerNamePascalCase}Controller.java`;
     fs.writeFileSync(fileName, generatedCode, 'utf-8');
-    console.log(`Generated ${fileName}`);
 }
 exports.generateSpringBootController = generateSpringBootController;
+function generateSpringBootService(params) {
+    const generatedService = generateService(params);
+    const generatedServiceImpl = generateServiceImpl(params);
+    const serviceSO = `${params.controllerNamePascalCase}SO.java`;
+    const serviceSOImpl = `${params.controllerNamePascalCase}SOImpl.java`;
+    fs.writeFileSync(serviceSO, generatedService, 'utf-8');
+    fs.writeFileSync(serviceSOImpl, generatedServiceImpl, 'utf-8');
+}
+exports.generateSpringBootService = generateSpringBootService;
 //# sourceMappingURL=generate.js.map

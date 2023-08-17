@@ -3,7 +3,7 @@
 import { Command } from 'commander';
 import readline from 'readline';
 import figlet from 'figlet';
-import { generateSpringBootController, ControllerData } from './commands/generate';
+import { generateSpringBootController, ControllerData, generateSpringBootService } from './commands/generate';
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -29,11 +29,11 @@ const run = async () => {
 
     const options = program.opts();
 
-    const controllerName = options.controller || await promptUser('Enter controller name: ');
     const moduleName = await promptUser('Enter module name (ex: user): ');
+    const routePath = options.route || await promptUser('Enter route path (ex: user [endpoint path]): ');
+    const controllerName = await promptUser('Enter controller name: ');
     const entityName = await promptUser('Enter entity name (ex: user [without Entity keyword]): ');
     const serviceSO = await promptUser('Enter service SO name (ex: user [without SO keyword]): ');
-    const routePath = options.route || await promptUser('Enter route path (ex: user [endpoint path]): ');
 
     const moduleNameLowerCase = moduleName.toLowerCase();
     const routePathLowerCase = routePath.toLowerCase();
@@ -43,12 +43,15 @@ const run = async () => {
         routePathLowerCase,
         modelNamePascalCase: `${entityName.charAt(0).toUpperCase() + entityName.slice(1)}Model`,
         entityNamePascalCase: `${entityName.charAt(0).toUpperCase() + entityName.slice(1)}Entity`,
-        serviceSOPascalCase: serviceSO.charAt(0).toUpperCase() + serviceSO.slice(1) + 'SO',
-        serviceSOCamelCase: serviceSO.charAt(0).toLowerCase() + serviceSO.slice(1) + 'SO',
-        controllerNamePascalCase: controllerName.charAt(0).toUpperCase() + controllerName.slice(1) + 'Controller'
+        serviceSOPascalCase: serviceSO.charAt(0).toUpperCase() + serviceSO.slice(1),
+        serviceSOCamelCase: serviceSO.charAt(0).toLowerCase() + serviceSO.slice(1),
+        controllerNamePascalCase: controllerName.charAt(0).toUpperCase() + controllerName.slice(1),
+        repositoryNamePascalCase: controllerName.charAt(0).toUpperCase() + controllerName.slice(1),
+        repositoryNameCamelCase: controllerName.charAt(0).toLowerCase() + controllerName.slice(1)
     };
 
     generateSpringBootController(params);
+    generateSpringBootService(params);
 
     rl.close();
 };

@@ -1,6 +1,6 @@
 {
   "name": "spring-boot-cli-generator",
-  "version": "1.0.1-alpha",
+  "version": "1.0.1-alpha-1",
   "description": "",
   "main": "dist/index.js",
   "bin": {

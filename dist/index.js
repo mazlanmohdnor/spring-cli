@@ -36,11 +36,11 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         .option('-c, --controller <controllerName>', 'Specify controller name')
         .parse(process.argv);
     const options = program.opts();
-    const controllerName = options.controller || (yield promptUser('Enter controller name: '));
     const moduleName = yield promptUser('Enter module name (ex: user): ');
+    const routePath = options.route || (yield promptUser('Enter route path (ex: user [endpoint path]): '));
+    const controllerName = yield promptUser('Enter controller name: ');
     const entityName = yield promptUser('Enter entity name (ex: user [without Entity keyword]): ');
     const serviceSO = yield promptUser('Enter service SO name (ex: user [without SO keyword]): ');
-    const routePath = options.route || (yield promptUser('Enter route path (ex: user [endpoint path]): '));
     const moduleNameLowerCase = moduleName.toLowerCase();
     const routePathLowerCase = routePath.toLowerCase();
     const params = {
@@ -48,11 +48,14 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         routePathLowerCase,
         modelNamePascalCase: `${entityName.charAt(0).toUpperCase() + entityName.slice(1)}Model`,
         entityNamePascalCase: `${entityName.charAt(0).toUpperCase() + entityName.slice(1)}Entity`,
-        serviceSOPascalCase: serviceSO.charAt(0).toUpperCase() + serviceSO.slice(1) + 'SO',
-        serviceSOCamelCase: serviceSO.charAt(0).toLowerCase() + serviceSO.slice(1) + 'SO',
-        controllerNamePascalCase: controllerName.charAt(0).toUpperCase() + controllerName.slice(1) + 'Controller'
+        serviceSOPascalCase: serviceSO.charAt(0).toUpperCase() + serviceSO.slice(1),
+        serviceSOCamelCase: serviceSO.charAt(0).toLowerCase() + serviceSO.slice(1),
+        controllerNamePascalCase: controllerName.charAt(0).toUpperCase() + controllerName.slice(1),
+        repositoryNamePascalCase: controllerName.charAt(0).toUpperCase() + controllerName.slice(1),
+        repositoryNameCamelCase: controllerName.charAt(0).toLowerCase() + controllerName.slice(1)
     };
     (0, generate_1.generateSpringBootController)(params);
+    (0, generate_1.generateSpringBootService)(params);
     rl.close();
 });
 run();

@@ -1,0 +1,1 @@
+{"version":"1.0.1-alpha","name":"spring-boot-cli-generator","dependencies":{"commander":{"version":"11.0.0"},"figlet":{"version":"1.6.0"}}}
