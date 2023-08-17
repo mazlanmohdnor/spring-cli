@@ -1,0 +1,27 @@
+{
+  "name": "spring-boot-controller-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "spring": "./dist/index.js"
+  },
+  "scripts": {
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/templates/* dist/commands/",
+    "build": "npm run clean && tsc && npm run copy-files"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.5.0",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "figlet": "^1.6.0"
+  }
+}
