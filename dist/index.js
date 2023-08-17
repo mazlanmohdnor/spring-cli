@@ -8,11 +8,11 @@ const commander_1 = require("commander");
 const generate_1 = require("./commands/generate");
 const readline_1 = __importDefault(require("readline"));
 const figlet = require("figlet");
-console.log(figlet.textSync("Dir Manager"));
+console.log(figlet.textSync("Spring Generator"));
 const program = new commander_1.Command();
 program
     .version('1.0.0')
-    .description('A CLI tool to generate Spring Boot controllers')
+    .description('A CLI tool to generate Spring Boot Files')
     .option('-r, --route <routePath>', 'Specify route path')
     .option('-c, --controller <controllerName>', 'Specify controller name')
     .parse(process.argv);
