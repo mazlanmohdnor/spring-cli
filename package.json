@@ -1,8 +1,8 @@
 {
-  "name": "spring-boot-controller-generator",
+  "name": "spring-boot-cli-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "bin": {
     "spring": "./dist/index.js"
   },
