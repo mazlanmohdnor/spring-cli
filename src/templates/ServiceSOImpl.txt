@@ -6,7 +6,6 @@ import my.com.sapura.ngos.orm.entity.${moduleNameLowerCase}.${entityNamePascalCa
 import my.com.sapura.ngos.mapper.${moduleNameLowerCase}.${serviceSOPascalCase}Mapper;
 import my.com.sapura.ngos.orm.repository.${moduleNameLowerCase}.${serviceSOPascalCase}Repository;
 import my.com.sapura.ngos.service.BaseSOImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Slf4j
