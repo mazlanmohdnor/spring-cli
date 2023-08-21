@@ -52,7 +52,7 @@ Follow the on-screen prompts to generate Spring Boot files.
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the [GitHub repository](https://github.com/mazlanmohdnor/ngos-spring-file-generator-cli). Pull requests are also encouraged.
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the [GitHub repository](https://github.com/mazlanmohdnor/spring-cli). Pull requests are also encouraged.
 
 ## License
 
