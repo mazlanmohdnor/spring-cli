@@ -32,7 +32,7 @@ const run = async () => {
     console.log(chalk.cyanBright('Usage: spring'));
 
     const program = new Command()
-        .version('1.0.1-alpha-6')
+        .version('1.0.1-alpha-7')
         .description(chalk.blueBright('🌼 A CLI tool to generate Spring Boot Files 🌼'))
         .parse(process.argv);
 

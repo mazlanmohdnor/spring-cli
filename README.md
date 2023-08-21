@@ -19,7 +19,7 @@ You need to have Node.js and npm (Node Package Manager) installed on your system
 To install the NGOS Spring File Generator CLI, open your terminal and run the following command:
 
 ```bash
-npm install -g ngos-spring-generator
+npm i -g spring-boot-cli-generator
 ```
 
 ## Usage
@@ -42,7 +42,7 @@ Follow the on-screen prompts to generate Spring Boot files.
 
 1. Install the NGOS Spring File Generator CLI as described in the [Installation](#installation) section.
 
-2. Run the CLI tool using the command `ngos-spring-generator`.
+2. Run the CLI tool using the command `spring`.
 
 3. Follow the interactive prompts to generate Spring Boot Controllers and Services. Provide information such as module name, entity name, and service SO name.
 
@@ -52,7 +52,7 @@ Follow the on-screen prompts to generate Spring Boot files.
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the [GitHub repository](https://github.com/your-username/ngos-spring-file-generator-cli). Pull requests are also encouraged.
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the [GitHub repository](https://github.com/mazlanmohdnor/ngos-spring-file-generator-cli). Pull requests are also encouraged.
 
 ## License
 

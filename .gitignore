@@ -9,4 +9,3 @@ web_modules/
 *.tsbuildinfo\
 /.idea/
 /spring-boot-controller-generator.iml
-/dist/

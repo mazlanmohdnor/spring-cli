@@ -1,0 +1,10 @@
+package my.com.sapura.ngos.service.application.${moduleNameLowerCase};
+
+import java.util.List;
+import my.com.sapura.ngos.common.model.${moduleNameLowerCase}.${modelNamePascalCase};
+import my.com.sapura.ngos.orm.entity.${moduleNameLowerCase}.${entityNamePascalCase};
+import my.com.sapura.ngos.service.BaseSO;
+
+public interface ${serviceSOPascalCase}SO extends BaseSO<${entityNamePascalCase}, ${modelNamePascalCase}, Long> {
+
+}
