@@ -1,0 +1,18 @@
+package my.com.sapura.ngos.common.model.${moduleNameLowerCase};
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import my.com.sapura.ngos.common.model.BaseModel;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ${modelNamePascalCase} extends BaseModel {
+
+
+}

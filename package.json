@@ -1,6 +1,6 @@
 {
   "name": "spring-boot-cli-generator",
-  "version": "1.0.1-alpha-8",
+  "version": "1.0.1-alpha-9",
   "description": "CLI tool for generating boilerplate code for Spring Boot applications.",
   "main": "dist/index.js",
   "bin": {

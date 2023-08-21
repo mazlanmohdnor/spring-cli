@@ -16,7 +16,7 @@ public class ${serviceSOPascalCase}SOImpl extends BaseSOImpl<${entityNamePascalC
   private final ${repositoryNamePascalCase}Repository ${serviceSOCamelCase}Repository;
   private final ${serviceSOPascalCase}Mapper ${serviceSOCamelCase}Mapper;
 
-  public ${serviceSOPascalCase}SOImpl(${repositoryNamePascalCase}Repository repository, ${mapperNamePascalCase}Mapper mapper) {
+  public ${serviceSOPascalCase}SOImpl(${repositoryNamePascalCase}Repository repository, ${serviceSOPascalCase}Mapper mapper) {
     super(repository, mapper);
     this.${serviceSOCamelCase}Repository = repository;
     this.${serviceSOCamelCase}Mapper = mapper;

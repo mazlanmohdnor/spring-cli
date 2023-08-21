@@ -6,6 +6,8 @@ const repositoryPath = path.join(__dirname, 'templates', 'RepositoryTemplate.txt
 const mapperPath = path.join(__dirname, 'templates', 'MapperTemplate.txt');
 const ServiceSOPath = path.join(__dirname, 'templates', 'ServiceSO.txt');
 const ServiceSOImplPath = path.join(__dirname, 'templates', 'ServiceSOImpl.txt');
+const modelPath = path.join(__dirname, 'templates', 'ModelTemplate.txt');
+const entityPath = path.join(__dirname, 'templates', 'EntityTemplate.txt');
 
 export interface ControllerData {
     moduleNameLowerCase: string;
@@ -18,6 +20,18 @@ export interface ControllerData {
     repositoryNamePascalCase: string;
     repositoryNameCamelCase: string;
     // [key: string]: string; // Allow dynamic property access
+}
+
+export function generateModel(data: ControllerData): string {
+    const template = fs.readFileSync(modelPath, 'utf-8');
+    // @ts-ignore
+    return template.replace(/\${(.*?)}/g, (_, match) => data[match.trim()] || '');
+}
+
+export function generateEntity(data: ControllerData): string {
+    const template = fs.readFileSync(entityPath, 'utf-8');
+    // @ts-ignore
+    return template.replace(/\${(.*?)}/g, (_, match) => data[match.trim()] || '');
 }
 
 export function generateController(data: ControllerData): string {
@@ -53,6 +67,8 @@ export function generateServiceImpl(params: ControllerData): string {
     return template.replace(/\${(.*?)}/g, (_, match) => params[match.trim()] || '');
 }
 
+// ------------------------------------------------------------------------
+
 export function generateSpringBootController(params: ControllerData): void {
     const directoryPath = `ngos-web/src/main/java/my/com/sapura/ngos/controller/application/${params.moduleNameLowerCase}`;
 
@@ -68,10 +84,54 @@ export function generateSpringBootController(params: ControllerData): void {
     try {
         fs.writeFileSync(filePath, generatedCode, 'utf-8');
         console.log(`✅ Successfully generated ${filePath}`);
+
+        generateSpringBootModel(params);
+        generateSpringBootEntity(params);
     } catch (error: any) {
         console.error(`❌ Error generating ${filePath}: ${error.message}`);
     }
 }
+
+export function generateSpringBootModel(params: ControllerData): void {
+    const directoryPath = `ngos-common/src/main/java/my/com/sapura/ngos/common/model/${params.moduleNameLowerCase}`;
+
+    const generatedCode = generateModel(params);
+    const fileName = `${params.modelNamePascalCase}.java`;
+    const filePath = path.join(directoryPath, fileName);
+
+    // Check if the directory exists, and if not, create it
+    if (!fs.existsSync(directoryPath)) {
+        fs.mkdirSync(directoryPath, { recursive: true }); // Use { recursive: true } to create parent directories if they don't exist
+    }
+
+    try {
+        fs.writeFileSync(filePath, generatedCode, 'utf-8');
+        console.log(`✅ Successfully generated ${filePath}`);
+    } catch (error: any) {
+        console.error(`❌ Error generating ${filePath}: ${error.message}`);
+    }
+}
+
+export function generateSpringBootEntity(params: ControllerData): void {
+    const directoryPath = `ngos-repository/src/main/java/my/com/sapura/ngos/orm/entity/${params.moduleNameLowerCase}`;
+
+    const generatedCode = generateEntity(params);
+    const fileName = `${params.entityNamePascalCase}.java`;
+    const filePath = path.join(directoryPath, fileName);
+
+    // Check if the directory exists, and if not, create it
+    if (!fs.existsSync(directoryPath)) {
+        fs.mkdirSync(directoryPath, { recursive: true }); // Use { recursive: true } to create parent directories if they don't exist
+    }
+
+    try {
+        fs.writeFileSync(filePath, generatedCode, 'utf-8');
+        console.log(`✅ Successfully generated ${filePath}`);
+    } catch (error: any) {
+        console.error(`❌ Error generating ${filePath}: ${error.message}`);
+    }
+}
+
 
 export function generateSpringBootRepository(params: ControllerData): void {
     const directoryPath = `ngos-repository/src/main/java/my/com/sapura/ngos/orm/repository/${params.moduleNameLowerCase}`;

@@ -1,0 +1,16 @@
+package my.com.sapura.ngos.orm.entity.${moduleNameLowerCase};
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+import my.com.sapura.ngos.orm.entity.BaseEntity;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "TO_BE_CHANGE")
+public class ${entityNamePascalCase} extends BaseEntity {
+
+
+}
