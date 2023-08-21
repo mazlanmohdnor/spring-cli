@@ -1,0 +1,25 @@
+package my.com.sapura.ngos.service.application.${moduleNameLowerCase};
+
+import lombok.extern.slf4j.Slf4j;
+import my.com.sapura.ngos.common.model.${moduleNameLowerCase}.${modelNamePascalCase};
+import my.com.sapura.ngos.orm.entity.${moduleNameLowerCase}.${entityNamePascalCase};
+import my.com.sapura.ngos.mapper.${moduleNameLowerCase}.${serviceSOPascalCase}Mapper;
+import my.com.sapura.ngos.orm.repository.${moduleNameLowerCase}.${serviceSOPascalCase}Repository;
+import my.com.sapura.ngos.service.BaseSOImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Slf4j
+@Service
+public class ${serviceSOPascalCase}SOImpl extends BaseSOImpl<${entityNamePascalCase}, ${modelNamePascalCase}, Long> implements ${serviceSOPascalCase}SO {
+
+  private final ${repositoryNamePascalCase}Repository ${serviceSOCamelCase}Repository;
+  private final ${serviceSOPascalCase}Mapper ${serviceSOCamelCase}Mapper;
+
+  public ${serviceSOPascalCase}SOImpl(${repositoryNamePascalCase}Repository repository, ${mapperNamePascalCase}Mapper mapper) {
+    super(repository, mapper);
+    this.${serviceSOCamelCase}Repository = repository;
+    this.${serviceSOCamelCase}Mapper = mapper;
+  }
+
+}
